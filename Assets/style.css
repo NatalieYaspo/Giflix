@@ -1,0 +1,23 @@
+body {
+    background-color: aquamarine;
+}
+
+.search-area {
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.restaurants{
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.results li{
+    margin-top: 20px;
+}
+
+.rating {
+    display: inline-flex;
+}

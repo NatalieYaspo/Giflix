@@ -1,29 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="Assets/reset.css">
     <link rel="stylesheet" href="Assets/style.css">
-    <title>Resturant Review</title>
+    <title>Restaurant Review</title>
 </head>
+
 <body>
 
-<Header class="header">
-    <h1 class="title">Resturant Review</h1>
-</Header>
+    <header class="header">
+        <h1 class="title">Restaurant Review</h1>
+    </header>
 
-<section class="search-area">
-    <input type="text" id="zip-code">
-    <button class="button"> Search</button>
-</section>
-<section class="resturants">
-    <ul class="results">
-        <li>Resturant 1</li>
-        <li>Resturant 2</li>
-        <li>Resturant 3</li>
-    </ul>
-</section>
+    <section class="search-area">
+        <input type="text" id="zip-code" placeholder="Enter your Zip Code">
+        <button class="button"> Search</button>
+    </section>
+    <main>
+    <section>
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <article class="tile is-child box">
+                    <p class="title">Meme goes here</p>
+                </article>
+            </div>
+            <div class="tile is-parent is-8">
+                <article class="tile is-child box">
+                    <p class="title">Restaurant Name 1</p>
+                    <p class="subtitle">Address: 1234 Whatever Ln. Charlotte, NC</p>
+                    <div class="rating">
+                    <p class="subtitle">Stars: *****</p>
+                    <p class="subtitle #-of-reviews"> 20 reviews</p>
+                    </div>
+                </article>
+            </div>
+    </section>
+    <section>
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <article class="tile is-child box">
+                    <p class="title">Meme goes here</p>
+                </article>
+            </div>
+            <div class="tile is-parent is-8">
+                <article class="tile is-child box">
+                    <p class="title">Restaurant Name 2</p>
+                    <p class="subtitle">Address: 1234 Whatever Ln. Charlotte, NC</p>
+                    <p class="subtitle">Stars: *****</p>
+                </article>
+            </div>
+    </section>
+    <section>
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <article class="tile is-child box">
+                    <p class="title">Meme goes here</p>
+                </article>
+            </div>
+            <div class="tile is-parent is-8">
+                <article class="tile is-child box">
+                    <p class="title">Restaurant Name 3</p>
+                    <p class="subtitle">Address: 1234 Whatever Ln. Charlotte, NC</p>
+                    <p class="subtitle">Stars: *****</p>
+                </article>
+            </div>
+    </section>
     
+</main>
     <script src="Assets/script.js"></script>
 </body>
+
 </html>
