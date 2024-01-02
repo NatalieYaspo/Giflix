@@ -1,3 +1,5 @@
+var yelpKey = config.yelp;
+
 // Function to handle the search by zip code
 function searchByZipCode(zipCode) {
     // Fetch restaurant data from API based on the zip code
