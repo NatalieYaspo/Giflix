@@ -2,6 +2,11 @@ body {
     background-color: aquamarine;
 }
 
+.input{
+    max-width: 500px;
+    margin-bottom: 50px;
+}
+
 .search-area {
     justify-content: center;
     text-align: center;
@@ -20,4 +25,5 @@ body {
 
 .rating {
     display: inline-flex;
+    margin-left: 10px;
 }
