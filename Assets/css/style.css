@@ -1,6 +1,14 @@
 body {
-    /* background-image: url("HomeBackgroundImg.jpg"); */
-    background-color: aquamarine;
+    
+}
+
+.background-image {
+    background-image: url("../images/HomeBackgroundImg.jpg"); /* The image used */
+    background-color: aquamarine;; /* Used if the image is unavailable */
+    height: 800px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
 }
 
 .input {
