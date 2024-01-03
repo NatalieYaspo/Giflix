@@ -46,37 +46,40 @@ const ZipCodeForm = () => {
     }
   };
 };
+
 const savedZipCode = localStorage.getItem("zipCode");
 
-    const appContainer = document.getElementById("app");
+const appContainer = document.getElementById("app");
 
-    const renderRestaurantSearch = () => {
-      appContainer.innerHTML = `
-        <div>
-          <!-- Other components and content -->
-          <p>Saved ZIP code: ${savedZipCode}</p>
-          <form id="zipCodeForm">
-            <input type="text" id="zipCodeInput" placeholder="Enter ZIP code" />
-            <button type="submit">Save</button>
-          </form>
-          <!-- Other components and content -->
-        </div>
-      `;
-    };
+// This will pull all info from API - NEED TO MAKE WORK
+// const renderRestaurantSearch = () => {
+//   appContainer.innerHTML = `
+//         <div>
+//           <!-- Other components and content -->
+//           <p>Saved ZIP code: ${savedZipCode}</p>
+//           <form id="zipCodeForm">
+//             <input type="text" id="zipCodeInput" placeholder="Enter ZIP code" />
+//             <button type="submit">Save</button>
+//           </form>
+//           <!-- Other components and content -->
+//         </div>
+//       `;
+// };
 
-    const handleFormSubmit = (event) => {
-      event.preventDefault();
-      const zipCodeInput = document.getElementById("zipCodeInput");
-      const zipCode = zipCodeInput.value;
-      localStorage.setItem("zipCode", zipCode);
-      zipCodeInput.value = "";
-      renderRestaurantSearch();
-    };
+// When you click search, this will save zipcode to local storage then calls to render the search.
+const handleFormSubmit = (event) => {
+  event.preventDefault();
+  const zipCodeInput = document.getElementById("zipCodeInput");
+  const zipCode = zipCodeInput.value;
+  localStorage.setItem("zipCode", zipCode);
+  zipCodeInput.value = "";
+  // renderRestaurantSearch(); - NEED TO PUT THIS BACK WHEN IT WORKS
+};
 
-    const zipCodeForm = document.getElementById("zipCodeForm");
-    zipCodeForm.addEventListener("submit", handleFormSubmit);
+const zipCodeForm = document.getElementById("zipCodeForm");
+zipCodeForm.addEventListener("submit", handleFormSubmit);
 
-    renderRestaurantSearch();
+// renderRestaurantSearch(); - NEED TO PUT THIS BACK WHEN IT WORKS
 
 // Function to display the restaurant list
 function displayRestaurantList(restaurants) {
@@ -137,9 +140,9 @@ function displayIdleMeme() {
 }
 
 // Example usage
-const zipCode = "12345"; // Replace with the actual zip code entered by the user
-searchByZipCode(zipCode);
-handleIdleTime();
+// const zipCode = ""; // Replace with the actual zip code entered by the user
+// searchByZipCode(zipCode);
+// handleIdleTime();
 
 const MemeContainer = () => {
   const memeContainer = document.createElement("div");
@@ -161,4 +164,4 @@ const MemeContainer = () => {
 
 // Example usage:
 // const appContainer = document.getElementById("app");
-appContainer.appendChild(MemeContainer());
+// appContainer.appendChild(MemeContainer());
