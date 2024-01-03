@@ -5,7 +5,7 @@ function searchByZipCode(zipCode) {
     // Fetch restaurant data from API based on the zip code
     $.ajax({
       url: `https://api.yelp.com/v3/businesses/search?location=${zipCode}&sort_by=best_match&limit=20`,
-      key: yelpKey,
+      header: 'Authorization: Bearer RVK-JmMkSbtKeWjTWBPDjP1i8ILSDhhgp5u3TFJ_C7MDQ98aU3Vx0qAp3SlafxNahI4cakCawlnCtqgAbm7mS1g73j_nwd7hUwyfBrP3PGzeOoIDTSgiMkoXj1-UZXYx',
       method: "GET",
       success: function (data) {
         // Display the restaurant list
