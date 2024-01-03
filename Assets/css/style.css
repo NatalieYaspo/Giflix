@@ -1,8 +1,9 @@
 body {
+    /* background-image: url("HomeBackgroundImg.jpg"); */
     background-color: aquamarine;
 }
 
-.input{
+.input {
     max-width: 500px;
     margin-bottom: 50px;
 }
@@ -13,13 +14,13 @@ body {
     margin-top: 50px;
 }
 
-.restaurants{
+.restaurants {
     justify-content: center;
     text-align: center;
     margin-top: 50px;
 }
 
-.results li{
+.results li {
     margin-top: 20px;
 }
 
