@@ -21,12 +21,28 @@
     </div>
     </header>
 
-    <section class="search-area">
-        <input class="input" type="text" placeholder="Enter Your Zip Code">
-        <button class="button"> Search</button>
-    </section>
-
+    
+    <!-- DO WE NEED THIS??? -->
+    <!-- <form id="myForm">
+        <input type="text" id="zipCodeInput" placeholder="Enter ZIP code" />
+        <button type="submit">Save</button>
+    </form>
+    <div>
+        Other components and content -->
+        <!-- <p>Saved ZIP code: ${savedZipCode}</p>
+            <form id="zipCodeForm">
+                <input type="text" id="zipCodeInput" placeholder="Enter ZIP code" />
+                <button type="submit">Save</button>
+            </form> -->
+            <!-- Other components and content -->
+            <!-- </div> -->
+            
     <main>
+        <form id="zipCodeForm" class="search-area">
+            <input class="input" id="zipCodeInput" type="text" placeholder="Enter Your Zip Code">
+            <button class="button">Search</button>
+        </form>
+
         <section>
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
@@ -39,9 +55,9 @@
                         <p class="title">Restaurant Name 1</p>
                         <p class="subtitle">Address: 1234 Whatever Ln. Charlotte, NC</p>
                         <div class="rating">
-                        <p class="subtitle stars">Stars: *****</p>
-                        <p class="subtitle #-of-reviews"> 20 reviews</p>
-                        </div> 
+                            <p class="subtitle stars">Stars: *****</p>
+                            <p class="subtitle #-of-reviews"> 20 reviews</p>
+                        </div>
                     </article>
                 </div>
         </section>
@@ -60,7 +76,7 @@
                         <div class="rating">
                             <p class="subtitle stars">Stars: *****</p>
                             <p class="subtitle #-of-reviews"> 20 reviews</p>
-                            </div>
+                        </div>
                     </article>
                 </div>
         </section>
@@ -79,15 +95,16 @@
                         <div class="rating">
                             <p class="subtitle stars">Stars: *****</p>
                             <p class="subtitle #-of-reviews"> 20 reviews</p>
-                            </div> 
+                        </div>
                     </article>
                 </div>
         </section>
-    
+
     </main>
 
     <script type='text/javascript' src='config.js'></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="Assets/js/script.js"></script>
 </body>
 
