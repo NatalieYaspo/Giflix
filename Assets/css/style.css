@@ -10,6 +10,19 @@ body {
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+h1.title{
+    font-size: xxx-large;
+    margin-bottom: 1px;
+}
+.yelp{
+    text-align: center;
+}
+
+img{
+    height: 50px;
+    max-width: 100%;
+}
+
 .input {
     max-width: 500px;
     margin-bottom: 50px;
