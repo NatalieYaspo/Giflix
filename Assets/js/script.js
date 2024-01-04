@@ -39,6 +39,41 @@ function handleSearchFormSubmit(event) {
   showMovies();
 }
 
+function displayRatingMeme(rating) {
+    console.log(rating);
+    
+    let memQuery = "";
+    switch (rating) {
+      case 1:
+        rating >= 85;
+        memQuery = "awesome";
+        break;
+      case 2:
+        rating >= 50;
+        memQuery = "average";
+        break;
+      case 3:
+        rating < 50;
+        memQuery = "yuk";
+        break;
+      default:
+        memQuery = "https://example.com/memes/default-meme.gif";
+        break;
+    }
+
+    console.log(rating)
+
+    // let memeUrl = `${memeUrlBase}?q=${memQuery}`
+    let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
+    // fetch(memeUrl)
+    //   .then(function(d){
+    //     return d.json()
+    //   })
+    //   .then(function(data){
+    //     console.log(data)
+    //   })
+
+  }
 function showMovies() {
   //Pulls movie title searched:
   var searchedMovieTitle = localStorage.getItem('movieTitle');
@@ -60,13 +95,13 @@ function showMovies() {
       let releaseYear = data.Year
       let movieRated = data.Rated
       let moviePlot = data.Plot
-      let rottenTomatoRating = data.Ratings[1].Value.slice(0, -1)
+      let rating = data.Ratings[1].Value.slice(0, -1)
       let movieGenre = data.Genre
       let movieActors = data.Actors
       let moviePoster = data.Poster
       // console.log(movieTitle, movieRated, moviePlot);//works!!
       // console.log(rottenTomatoRating);//works
-      console.log(moviePoster);
+      // console.log(moviePoster);
 
       //Shows data on page
       movieTitleEl.textContent = movieTitle;
@@ -76,47 +111,60 @@ function showMovies() {
       movieActorsEl.textContent = "Main Actors: " + movieActors;
       moviePlotEl.textContent = moviePlot;
       moviePosterEl.src = moviePoster;
-      movieRtRatingEl.textContent = rottenTomatoRating + "%";
+      movieRtRatingEl.textContent = rating + "%";
+      displayRatingMeme(parseInt(rating));
     }
     )
-  displayRatingMeme(rottenTomatoRating);
+  
 }
+
+const above50Memes = [];
+const randomIndex = Math.floor(Math.random() * above50Memes.length);
+const randomMeme = above50Memes[randomIndex];
+const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
+// const searchTerm = 'Awesome';
+// NEEDED?
+// fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&rating=pg-13&limit=10`)
+//   .then(response => response.json())
+//   .then(data => {
+//     // Process the response data here
+//     const gifs = data.data;
+//     // console.log(gifs);
+//   })
+//   .catch(error => {
+//     console.error('Error:', error);
+//   });
+  
 
 // Function to display the rating meme/gif
-function displayRatingMeme(rating) {
-  let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
+const awesomeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=awesome&rating=pg-13&limit=10`
+const mehUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=meh&rating=pg-13&limit=10`
+const ewwUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=eww&rating=pg-13&limit=10`
+// function displayRatingMeme(rottenTomatoRating) {
+//   console.log(rottenTomatoRating.value);
+//   let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
 
 
 
-  switch (rating) {
-    case 1:
-      memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-      break;
-    case 2:
-      memeUrl = "https://example.com/memes/2-star-meme.gif";
-      break;
-    case 3:
-      memeUrl = "https://example.com/memes/3-star-meme.gif";
-      break;
-    default:
-      memeUrl = "https://example.com/memes/default-meme.gif";
-      break;
-  }
+//   switch (rating) {
+//     case 1:
+//       rating >= "85";
+//       memeUrl = awesomeUrl;
+//       break;
+//     case 2:
+//       rating >= "50";
+//       memeUrl = mehUrl;
+//       break;
+//     case 3:
+//       rating < "50";
+//       memeUrl = ewwUrl;
+//       break;
+//     default:
+//       memeUrl = "https://example.com/memes/default-meme.gif";
+//       break;
+//   }
 
-}
-const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
-const searchTerm = 'Awesome';
-fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&rating=pg-13&limit=10`)
-  .then(response => response.json())
-  .then(data => {
-    // Process the response data here
-    const gifs = data.data;
-    console.log(gifs);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-  randomindex
+// }
 
 // Function to handle idle time
 function handleIdleTime() {
@@ -174,8 +222,7 @@ const MemeContainer = () => {
 //     below50Memes.push(meme);
 //   }
 // });
-// const randomIndex = Math.floor(Math.random() * above50Memes.length);
-// const randomMeme = above50Memes[randomIndex];
+
 
 // Example usage:
 // const appContainer = document.getElementById("app");
