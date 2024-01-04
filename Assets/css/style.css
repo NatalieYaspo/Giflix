@@ -6,10 +6,19 @@
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+.bulma-overlay-mixin {
+    @include overlay(1.5rem);
+    border-radius: 0.25em;
+    color: black;
+    opacity: 0.9;
+    padding: 1em;
+}
+
 h1.title{
     font-size: xxx-large;
     margin-bottom: 1px;
 }
+
 .yelp{
     text-align: center;
 }
