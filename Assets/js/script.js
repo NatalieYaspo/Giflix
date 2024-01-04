@@ -217,22 +217,21 @@ function displayRatingMeme(rating) {
   
   
 
-  // switch (rating) {
-  //   case 1:
-  //     memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-  //     break;
-  //   case 2:
-  //     memeUrl = "https://example.com/memes/2-star-meme.gif";
-  //     break;
-  //   case 3:
-  //     memeUrl = "https://example.com/memes/3-star-meme.gif";
-  //     break;
-  //   default:
-  //     memeUrl = "https://example.com/memes/default-meme.gif";
-  //     break;
-  // }
+  switch (rating) {
+    case 1:
+      memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
+      break;
+    case 2:
+      memeUrl = "https://example.com/memes/2-star-meme.gif";
+      break;
+    case 3:
+      memeUrl = "https://example.com/memes/3-star-meme.gif";
+      break;
+    default:
+      memeUrl = "https://example.com/memes/default-meme.gif";
+      break;
+  }
 
-  alert(`Average Rating: ${rating}\n\n${memeUrl}`);
 }
 
 // Function to handle idle time
