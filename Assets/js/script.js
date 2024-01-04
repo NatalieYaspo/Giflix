@@ -49,13 +49,13 @@ const movieRtRatingEl = document.getElementById('rottenTomatoRating');
 const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
 
 // try {
-  // 	const response = fetch(url, options);
-  // 	const result = await response.text();
-  // 	console.log(result);
-  // } catch (error) {
-    // 	console.error(error);
-    // }
-    
+// 	const response = fetch(url, options);
+// 	const result = await response.text();
+// 	console.log(result);
+// } catch (error) {
+// 	console.error(error);
+// }
+
 //Event Listeners
 formEl.addEventListener("submit", handleSearchFormSubmit);
 
@@ -66,7 +66,7 @@ function handleSearchFormSubmit(event) {
 
   //Removes Hide class once submit button is clicked
   movieDisplay.classList.remove("hide");
-      
+
   const movieTitleInput = document.getElementById('movieTitleInput').value;
   // console.log('should see movie name, no quotes: ', movieTitleInput); - works
 
@@ -91,10 +91,10 @@ function showMovies() {
 
   //Gets information from API
   fetch(urlBySearchYear)
-    .then(function(response) {
+    .then(function (response) {
       return response.json();
     })
-    .then(function(data) {
+    .then(function (data) {
       // console.log(data); //works!
       console.log(data);
       let movieTitle = data.Title
@@ -109,9 +109,9 @@ function showMovies() {
       movieRatedEl.textContent = "Rated: " + movieRated;
       moviePlotEl.textContent = moviePlot;
       movieRtRatingEl.textContent = rottenTomatoRating + "%";
-      }
+    }
     )
-  }
+}
 
 
 // const handleInputChange = (event) => {
@@ -131,16 +131,16 @@ function showMovies() {
 //   searchByZipCode(year);
 //   $("#yearInput").val("");
 
-  // zipCodeInput.addEventListener('change', handleInputChange);
+// zipCodeInput.addEventListener('change', handleInputChange);
 
-  // function handleSubmit(event) { - REMOVE???
-  //   event.preventDefault();
-  //   // Handle form submission logic here
-  // }
+// function handleSubmit(event) { - REMOVE???
+//   event.preventDefault();
+//   // Handle form submission logic here
+// }
 
-  // function handleInputChange(event) {
-  //   // Handle input change logic here
-  // }
+// function handleInputChange(event) {
+//   // Handle input change logic here
+// }
 // };
 
 // form.addEventListener('submit', handleSubmit);
@@ -253,13 +253,29 @@ const MemeContainer = () => {
   img.alt = "Good Rating Meme";
 
   const p = document.createElement("p");
-  p.textContent = "This restaurant has a good rating!";
+  p.textContent = "This movie has a good rating!";
 
   memeContainer.appendChild(img);
   memeContainer.appendChild(p);
 
   return memeContainer;
 };
+
+// const memes = [
+//   { name: "Meme 1", rating: 80, imageURL: "https://media.giphy.com/media/sQuHLqjWwRXGvrjkg0/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g" },
+//   { name: "Meme 2", rating: 30, imageURL: "meme2.jpg" },
+//   { name: "Meme 3", rating: 60, imageURL: "meme3.jpg" },];
+// const above50Memes = [];
+// const below50Memes = [];
+// memes.forEach((meme) => {
+//   if (meme.rating > 50) {
+//     above50Memes.push(meme);
+//   } else {
+//     below50Memes.push(meme);
+//   }
+// });
+// const randomIndex = Math.floor(Math.random() * above50Memes.length);
+// const randomMeme = above50Memes[randomIndex];
 
 // Example usage:
 // const appContainer = document.getElementById("app");
