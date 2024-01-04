@@ -46,6 +46,10 @@ const movieTitleEl = document.getElementById('movieTitle');
 const movieRatedEl = document.getElementById('movieRated');
 const moviePlotEl = document.getElementById('moviePlot');
 const movieRtRatingEl = document.getElementById('rottenTomatoRating');
+const movieGenreEl = document.getElementById('movieGenre');
+const movieActorsEl = document.getElementById('movieActors');
+const moviePosterEl = document.getElementById('moviePoster');
+const releaseYearEl = document.getElementById('releaseYear');
 const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
 
 // try {
@@ -98,19 +102,29 @@ function showMovies() {
       // console.log(data); //works!
       console.log(data);
       let movieTitle = data.Title
+      let releaseYear = data.Year
       let movieRated = data.Rated
       let moviePlot = data.Plot
-      let rottenTomatoRating = data.Ratings[1].Value.slice(0, -1);
+      let rottenTomatoRating = data.Ratings[1].Value.slice(0, -1)
+      let movieGenre = data.Genre
+      let movieActors = data.Actors
+      let moviePoster = data.Poster
       // console.log(movieTitle, movieRated, moviePlot);//works!!
       // console.log(rottenTomatoRating);//works
+      console.log(moviePoster);
 
       //Shows data on page
       movieTitleEl.textContent = movieTitle;
+      releaseYearEl.textContent = releaseYear;
       movieRatedEl.textContent = "Rated: " + movieRated;
+      movieGenreEl.textContent = "Genre: " + movieGenre;
+      movieActorsEl.textContent = "Main Actors: " + movieActors;
       moviePlotEl.textContent = moviePlot;
+      moviePosterEl.href = moviePoster;
       movieRtRatingEl.textContent = rottenTomatoRating + "%";
       }
     )
+    findMeme();
   }
 
 
