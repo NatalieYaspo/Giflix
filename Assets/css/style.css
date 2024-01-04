@@ -1,13 +1,18 @@
 .background-image {
-    background-image: url("../images/FilmImg.jpg"); /* The image used */
-    background-color: aquamarine;; /* Used if the image is unavailable */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
+    background-image: url("../images/FilmImg.jpg");
+    /* The image used */
+    background-color: aquamarine;
+    /* Used if the image is unavailable */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
 }
 
 .bulma-overlay-mixin {
-    @include overlay(1.5rem);
+    /*@include overlay(1.5rem);*/
     border-radius: 0.25em;
     color: black;
     opacity: 0.9;
@@ -15,23 +20,22 @@
 }
 
 .footer {
-
+    justify-content: center;
 }
 
-h1.title{
+.copyright {
+    position: fixed;
+    bottom: 0px;
+    font-size: 10px;
+    font-weight: 500;
+    color: white;
+    margin-left: 20px;
+}
+
+h1.title {
     font-size: xxx-large;
     margin-bottom: 1px;
     color: white;
-    
-}
-
-.yelp{
-    text-align: center;
-}
-
-img{
-    height: 50px;
-    max-width: 100%;
 }
 
 .input {
@@ -43,21 +47,6 @@ img{
     justify-content: center;
     text-align: center;
     margin-top: 50px;
-}
-
-.restaurants {
-    justify-content: center;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.results li {
-    margin-top: 20px;
-}
-
-.rating {
-    display: inline-flex;
-    margin-left: 10px;
 }
 
 .hide {
