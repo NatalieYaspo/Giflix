@@ -73,7 +73,7 @@ function handleSearchFormSubmit(event) {
   localStorage.setItem('movieTitle', movieTitleInput);
 
   if (!movieTitleInput) {
-    console.log("You need to enter a title keyword!"); //works!
+    console.log("You need to enter a movie title!"); //works!
     return;
   }
 
