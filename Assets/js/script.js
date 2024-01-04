@@ -46,6 +46,10 @@ const movieTitleEl = document.getElementById('movieTitle');
 const movieRatedEl = document.getElementById('movieRated');
 const moviePlotEl = document.getElementById('moviePlot');
 const movieRtRatingEl = document.getElementById('rottenTomatoRating');
+const movieGenreEl = document.getElementById('movieGenre');
+const movieActorsEl = document.getElementById('movieActors');
+const moviePosterEl = document.getElementById('moviePoster');
+const releaseYearEl = document.getElementById('releaseYear');
 const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
 
 // try {
@@ -98,20 +102,31 @@ function showMovies() {
       // console.log(data); //works!
       console.log(data);
       let movieTitle = data.Title
+      let releaseYear = data.Year
       let movieRated = data.Rated
       let moviePlot = data.Plot
-      let rottenTomatoRating = data.Ratings[1].Value.slice(0, -1);
+      let rottenTomatoRating = data.Ratings[1].Value.slice(0, -1)
+      let movieGenre = data.Genre
+      let movieActors = data.Actors
+      let moviePoster = data.Poster
       // console.log(movieTitle, movieRated, moviePlot);//works!!
       // console.log(rottenTomatoRating);//works
+      console.log(moviePoster);
 
       //Shows data on page
       movieTitleEl.textContent = movieTitle;
+      releaseYearEl.textContent = releaseYear;
       movieRatedEl.textContent = "Rated: " + movieRated;
+      movieGenreEl.textContent = "Genre: " + movieGenre;
+      movieActorsEl.textContent = "Main Actors: " + movieActors;
       moviePlotEl.textContent = moviePlot;
+      moviePosterEl.href = moviePoster;
       movieRtRatingEl.textContent = rottenTomatoRating + "%";
     }
     )
-}
+    displayRatingMeme(rottenTomatoRating);
+    
+  }
 
 
 // const handleInputChange = (event) => {
@@ -198,22 +213,24 @@ function showMovies() {
 
 // Function to display the rating meme/gif
 function displayRatingMeme(rating) {
-  let memeUrl;
+  let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
+  
+  
 
-  switch (rating) {
-    case 1:
-      memeUrl = "https://example.com/memes/1-star-meme.gif";
-      break;
-    case 2:
-      memeUrl = "https://example.com/memes/2-star-meme.gif";
-      break;
-    case 3:
-      memeUrl = "https://example.com/memes/3-star-meme.gif";
-      break;
-    default:
-      memeUrl = "https://example.com/memes/default-meme.gif";
-      break;
-  }
+  // switch (rating) {
+  //   case 1:
+  //     memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
+  //     break;
+  //   case 2:
+  //     memeUrl = "https://example.com/memes/2-star-meme.gif";
+  //     break;
+  //   case 3:
+  //     memeUrl = "https://example.com/memes/3-star-meme.gif";
+  //     break;
+  //   default:
+  //     memeUrl = "https://example.com/memes/default-meme.gif";
+  //     break;
+  // }
 
   alert(`Average Rating: ${rating}\n\n${memeUrl}`);
 }
@@ -232,11 +249,11 @@ function handleIdleTime() {
 }
 
 // Function to display the idle meme
-function displayIdleMeme() {
-  const idleMemeUrl =
-    "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-  alert("You are taking too long!\n\n" + idleMemeUrl);
-}
+// function displayIdleMeme() {
+//   const idleMemeUrl =
+//     "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
+//   alert("You are taking too long!\n\n" + idleMemeUrl);
+// }
 
 // Example usage
 // const zipCode = ""; // Replace with the actual zip code entered by the user
