@@ -39,8 +39,9 @@ function handleSearchFormSubmit(event) {
   showMovies();
 }
 
+//This will display the meme/gif based on movie rating
 function displayRatingMeme(rating) {
-  console.log(rating);
+  // console.log(rating); //Works!
 
   let memQuery = "";
   if (rating >= 85) {
@@ -68,21 +69,22 @@ function displayRatingMeme(rating) {
   //     memQuery = "https://example.com/memes/default-meme.gif";
   //     break;
   // }
+  // console.log(rating) //Works!
 
-  console.log(rating)
-
-  // let memeUrl = `${memeUrlBase}?q=${memQuery}`
+  // Giphy API that we will pass through a keywork based on rating
   let memeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${memQuery}&rating=pg-13&limit=10`;
   fetch(memeUrl)
     .then(function (d) {
       return d.json()
     })
     .then(function (data) {
-      console.log(memeUrl)
+      // console.log(memeUrl) //works!
       console.log(data)
     })
 
 }
+
+//This will show the information for the movie title that was searched
 function showMovies() {
   //Pulls movie title searched:
   var searchedMovieTitle = localStorage.getItem('movieTitle');
@@ -99,7 +101,6 @@ function showMovies() {
     })
     .then(function (data) {
       // console.log(data); //works!
-      console.log(data);
       let movieTitle = data.Title
       let releaseYear = data.Year
       let movieRated = data.Rated
@@ -112,7 +113,7 @@ function showMovies() {
       // console.log(rottenTomatoRating);//works
       // console.log(moviePoster);
 
-      //Shows data on page
+      //Displays data on page
       movieTitleEl.textContent = movieTitle;
       releaseYearEl.textContent = releaseYear;
       movieRatedEl.textContent = "Rated: " + movieRated;
@@ -124,7 +125,6 @@ function showMovies() {
       displayRatingMeme(parseInt(rating));
     }
     )
-
 }
 
 const above50Memes = [];
@@ -146,9 +146,10 @@ const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
 
 
 // Function to display the rating meme/gif
-const awesomeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=awesome&rating=pg-13&limit=10`
-const mehUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=meh&rating=pg-13&limit=10`
-const ewwUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=eww&rating=pg-13&limit=10`
+//REMOVE?  THIS Won't count as using an API
+// const awesomeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=awesome&rating=pg-13&limit=10`
+// const mehUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=meh&rating=pg-13&limit=10`
+// const ewwUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=eww&rating=pg-13&limit=10`
 // function displayRatingMeme(rottenTomatoRating) {
 //   console.log(rottenTomatoRating.value);
 //   let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
