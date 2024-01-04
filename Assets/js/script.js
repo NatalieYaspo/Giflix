@@ -104,6 +104,19 @@ function displayRatingMeme(rating) {
   }
 
 }
+const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
+const searchTerm = 'Awesome';
+fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&rating=pg-13&limit=10`)
+  .then(response => response.json())
+  .then(data => {
+    // Process the response data here
+    const gifs = data.data;
+    console.log(gifs);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  randomindex
 
 // Function to handle idle time
 function handleIdleTime() {
