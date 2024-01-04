@@ -18,6 +18,7 @@ URL:
 
 Upon opening the app, the user will be presented with a search bar to enter the name of the movie they wish to look up.
 
+![image](https://github.com/coulterkyle/resturant-review/assets/149972640/8e4e2380-a5a5-4cf0-b939-78fd44ee1933)
 
 When the movie title has been searched, the user will see a box with the basic movie information including:
 - Movie name and year released and the movie poster
@@ -26,7 +27,8 @@ When the movie title has been searched, the user will see a box with the basic m
 - Main actors
 - Basic movie plot
 - Current Rotten Tomatoes rating %
-
+  
+![image](https://github.com/coulterkyle/resturant-review/assets/149972640/f7d83723-e9d9-4bbe-b57a-63130bcb8709)
 
 The user will also see an entertaining Gif based on the level of Rotten Tomatoes rating.  If it is a top score, medocre, or low score, the Gif will give a basic overall impression of the movie.
 
