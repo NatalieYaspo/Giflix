@@ -120,7 +120,7 @@ function showMovies() {
       movieGenreEl.textContent = "Genre: " + movieGenre;
       movieActorsEl.textContent = "Main Actors: " + movieActors;
       moviePlotEl.textContent = moviePlot;
-      moviePosterEl.href = moviePoster;
+      moviePosterEl.src = moviePoster;
       movieRtRatingEl.textContent = rottenTomatoRating + "%";
       }
     )
