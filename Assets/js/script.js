@@ -41,6 +41,7 @@
 
 //Movie Variables
 const formEl = document.getElementById('movieTitleSearchForm');
+const movieDisplay = document.getElementById('movieDisplay');
 const movieTitleEl = document.getElementById('movieTitle');
 const movieRatedEl = document.getElementById('movieRated');
 const moviePlotEl = document.getElementById('moviePlot');
@@ -62,6 +63,9 @@ formEl.addEventListener("submit", handleSearchFormSubmit);
 function handleSearchFormSubmit(event) {
   event.preventDefault();
   // console.log("search form clicked!"); - works!
+
+  //Removes Hide class once submit button is clicked
+  movieDisplay.classList.remove("hide");
       
   const movieTitleInput = document.getElementById('movieTitleInput').value;
   // console.log('should see movie name, no quotes: ', movieTitleInput); - works
