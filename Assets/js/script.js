@@ -1,42 +1,5 @@
-// var yelpKey = 'RVK-JmMkSbtKeWjTWBPDjP1i8ILSDhhgp5u3TFJ_C7MDQ98aU3Vx0qAp3SlafxNahI4cakCawlnCtqgAbm7mS1g73j_nwd7hUwyfBrP3PGzeOoIDTSgiMkoXj1-UZXYx';
-
-// Function to handle the search by zip code
-// function searchByZipCode(zipCode) {
-//   console.log(zipCode);
-//   // Fetch restaurant data from API based on the zip code
-//   $.ajax({
-//     url: `https://api.yelp.com/v3/businesses/search?location=${zipCode}&radius=8046&open_now=true&sort_by=best_match&limit=10`,
-//     dataType: 'jsonp',
-//     header: {
-//       "Authorization": `Bearer RVK-JmMkSbtKeWjTWBPDjP1i8ILSDhhgp5u3TFJ_C7MDQ98aU3Vx0qAp3SlafxNahI4cakCawlnCtqgAbm7mS1g73j_nwd7hUwyfBrP3PGzeOoIDTSgiMkoXj1-UZXYx`,
-//       // "accept": "application/json",
-//       //"Access-Control-Allow-Origin": "*",
-//     },
-//     method: "GET",
-//     success: function (data) {
-//       console.log("data: " + data);
-//       // Display the restaurant list
-//       displayRestaurantList(data);
-//     },
-//     error: function (error) {
-//       console.error("Error:", error);
-//     },
-//   });
-// }
-
-// async function displayListTest(zipCode) {
-//   try {
-//     const response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${zipCode}&radius=8046&open_now=true&sort_by=best_match&limit=10`, {
-//       headers: {
-//         Authorization: `Bearer ${yelpKey}`,
-//       },
-//     });
-//   }
-//   catch (error) {
-//     console.error('Error:', error);
-//   }
-// }
-// console.log(displayListTest(28210));
+// Kyle C Gify API Key - cmVU7ix5dloWzAOS2tEDijL0F1CEkuZT
+// Kyle C OMDB API Key - b4e4f55f
 
 
 //Movie Variables
@@ -51,14 +14,6 @@ const movieActorsEl = document.getElementById('movieActors');
 const moviePosterEl = document.getElementById('moviePoster');
 const releaseYearEl = document.getElementById('releaseYear');
 const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
-
-// try {
-// 	const response = fetch(url, options);
-// 	const result = await response.text();
-// 	console.log(result);
-// } catch (error) {
-// 	console.error(error);
-// }
 
 //Event Listeners
 formEl.addEventListener("submit", handleSearchFormSubmit);
@@ -124,98 +79,14 @@ function showMovies() {
       movieRtRatingEl.textContent = rottenTomatoRating + "%";
     }
     )
-    displayRatingMeme(rottenTomatoRating);
-    
-  }
-
-
-// const handleInputChange = (event) => {
-//   const year = event.target.value;
-//   console.log(event);
-//   localStorage.setItem("year", year);
-// };
-
-// zipCodeInput.addEventListener('change', handleInputChange);
-// ZipCodeForm.js //REMOVE?
-// const ZipCodeForm = () => {
-// };
-
-// const handleSubmit = (event) => {
-//   event.preventDefault();
-//   const year = localStorage.getItem("year");
-//   searchByZipCode(year);
-//   $("#yearInput").val("");
-
-// zipCodeInput.addEventListener('change', handleInputChange);
-
-// function handleSubmit(event) { - REMOVE???
-//   event.preventDefault();
-//   // Handle form submission logic here
-// }
-
-// function handleInputChange(event) {
-//   // Handle input change logic here
-// }
-// };
-
-// form.addEventListener('submit', handleSubmit);
-
-// const savedZipCode = localStorage.getItem("year");
-
-// const appContainer = document.getElementById("app");
-
-// This will pull all info from API - NEED TO MAKE WORK
-// const renderRestaurantSearch = () => {
-//   appContainer.innerHTML = `
-//         <div>
-//           <!-- Other components and content -->
-//           <p>Saved ZIP code: ${savedZipCode}</p>
-//           <form id="zipCodeForm">
-//             <input type="text" id="zipCodeInput" placeholder="Enter ZIP code" />
-//             <button type="submit">Save</button>
-//           </form>
-//           <!-- Other components and content -->
-//         </div>
-//       `;
-// };
-
-// When you click search, this will save zipcode to local storage then calls to render the search.
-// const handleFormSubmit = (event) => {
-//   event.preventDefault();
-//   const zipCodeInput = document.getElementById("yearInput");
-//   const zipCode = zipCodeInput.value;
-//   localStorage.setItem("year", zipCode);
-//   zipCodeInput.value = "";
-//   // renderRestaurantSearch(); - NEED TO PUT THIS BACK WHEN IT WORKS
-// };
-
-// const zipCodeForm = document.getElementById("zipCodeForm");
-// zipCodeForm.addEventListener("submit", handleFormSubmit);
-
-// // renderRestaurantSearch(); - NEED TO PUT THIS BACK WHEN IT WORKS
-
-// // Function to display the restaurant list
-// function displayRestaurantList(data) {
-//   console.log(data);
-//   const restaurantList = $("#restaurant-list");
-//   restaurantList.empty();
-
-//   restaurants.forEach((restaurant) => {
-//     const listItem = $("<li>").text(restaurant.name);
-
-//     listItem.on("mouseover", () => {
-//       displayRatingMeme(restaurant.rating);
-//     });
-
-//     restaurantList.append(listItem);
-//   });
-// }
+  displayRatingMeme(rottenTomatoRating);
+}
 
 // Function to display the rating meme/gif
 function displayRatingMeme(rating) {
   let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-  
-  
+
+
 
   // switch (rating) {
   //   case 1:
