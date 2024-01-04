@@ -34,7 +34,7 @@
             
     <main>
         <form id="movieTitleSearchForm" class="search-area">
-            <input class="input" id="movieTitleInput" type="text" placeholder="Enter Title Keyword">
+            <input class="input" id="movieTitleInput" type="text" placeholder="Enter Movie Title">
             <button class="button">Search</button>
         </form>
 
@@ -47,17 +47,17 @@
                 </div>
                 <div class="tile is-parent is-8">
                     <article class="tile is-child box">
-                        <p class="title">Title</p>
-                        <p id="movieRating">Movie Rating</p>
+                        <p id="movieTitle" class="title">Title</p>
+                        <p id="movieRated">Movie Rated</p>
+                        <br>
                         <p id="moviePlot">Plot</p>
-                        <div class="rating">
-                            <p id="rottenTomatoRating">Rotten Tomatoes Rating: %</p>
-                        </div>
+                        <br>
+                        <p id="rottenTomatoRating">Rotten Tomatoes Rating: %</p>
                     </article>
                 </div>
         </section>
 
-        <section>
+        <!-- <section> - MAY NOT NEED THESE...
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
                     <article class="tile is-child box">
@@ -93,9 +93,15 @@
                         </div>
                     </article>
                 </div>
-        </section>
+        </section> -->
 
     </main>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+            <p class="text-center text-body-secondary">&copy; 2024 Group 2 - Meme Movie</p>
+        </footer>
+    </div>
 
     <script type='text/javascript' src='config.js'></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"

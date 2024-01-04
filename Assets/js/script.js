@@ -41,6 +41,10 @@
 
 //Movie Variables
 const formEl = document.getElementById('movieTitleSearchForm');
+const movieTitleEl = document.getElementById('movieTitle');
+const movieRatedEl = document.getElementById('movieRated');
+const moviePlotEl = document.getElementById('moviePlot');
+const movieRtRatingEl = document.getElementById('rottenTomatoRating');
 const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
 
 // try {
@@ -75,11 +79,11 @@ function handleSearchFormSubmit(event) {
 function showMovies() {
   //Pulls movie title searched:
   var searchedMovieTitle = localStorage.getItem('movieTitle');
-  console.log("should see movie title, no quotes: ", searchedMovieTitle); - works
+  // console.log("should see movie title, with no quotes: ", searchedMovieTitle); //- works
 
   //Adds the year to search to URL
-  var urlBySearchYear = url + '&s=' + movieTitleInput;
-  console.log(urlBySearchYear);
+  var urlBySearchYear = url + '&t=' + searchedMovieTitle;
+  // console.log(urlBySearchYear); //- works!
 
   //Gets information from API
   fetch(urlBySearchYear)
@@ -87,9 +91,23 @@ function showMovies() {
       return response.json();
     })
     .then(function(data) {
-      console.log(data); //works but only shows guradians.  Need to update parameters.
-    })
-}
+      // console.log(data); //works!
+      console.log(data);
+      let movieTitle = data.Title
+      let movieRated = data.Rated
+      let moviePlot = data.Plot
+      let rottenTomatoRating = data.Ratings[1].Value.slice(0, -1);
+      // console.log(movieTitle, movieRated, moviePlot);//works!!
+      // console.log(rottenTomatoRating);//works
+
+      //Shows data on page
+      movieTitleEl.textContent = movieTitle;
+      movieRatedEl.textContent = "Rated: " + movieRated;
+      moviePlotEl.textContent = moviePlot;
+      movieRtRatingEl.textContent = rottenTomatoRating + "%";
+      }
+    )
+  }
 
 
 // const handleInputChange = (event) => {
