@@ -1,5 +1,7 @@
 // Kyle C Gify API Key - cmVU7ix5dloWzAOS2tEDijL0F1CEkuZT
 // Kyle C OMDB API Key - b4e4f55f
+// Natalie Y Gify API Key - 0ZtRGAT8OHOQfkQQhxXgwfbapGpNP66I
+// Natalie Y OMDB API Key - a9de6950
 
 
 //Movie Variables
@@ -81,7 +83,6 @@ function displayRatingMeme(rating) {
       // console.log(memeUrl) //works!
       console.log(data)
     })
-
 }
 
 //This will show the information for the movie title that was searched
