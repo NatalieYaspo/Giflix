@@ -19,7 +19,7 @@
     padding: 1em;
 }
 
-img{
+img#moviePoster{
     max-height: 300px;
     max-width: 300px;
     position: relative;
@@ -44,6 +44,8 @@ h1.title {
     font-size: xxx-large;
     margin-bottom: 1px;
     color: white;
+    text-align: center;
+    padding-top: 30px;
 }
 
 .input {
