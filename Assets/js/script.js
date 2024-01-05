@@ -33,7 +33,13 @@ function handleSearchFormSubmit(event) {
   localStorage.setItem('movieTitle', movieTitleInput);
 
   if (!movieTitleInput) {
-    alert("You need to enter a movie title!"); //works!
+    {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter a movie title!",
+      });
+    }; 
     return;
   }
 
@@ -59,7 +65,13 @@ function showMovies() {
       // console.log(data.Response);
       if (data.Response == "False") {
         // console.log("no data")
-        alert(data.Error);
+        {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong! Please spell title correctly!",
+          });
+        };
       } else {
         //Removes Hide class once submit button is clicked
         movieDisplay.classList.remove("hide");
