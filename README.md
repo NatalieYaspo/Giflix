@@ -52,8 +52,8 @@ Library:
 - Bulma for CSS styling: https://bulma.io/
 
 Collaborators:
-Peters, Sasha via zoom 1/3-1/4/2024
-Le, Roger via zoom 1/3-1/4/2024
+- Peters, Sasha via zoom 1/3-1/4/2024
+- Le, Roger via zoom 1/3-1/4/2024
 
 ## License
 

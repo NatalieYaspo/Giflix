@@ -32,6 +32,7 @@ function handleSearchFormSubmit(event) {
 
   localStorage.setItem('movieTitle', movieTitleInput);
 
+  // If no movie title is entered before search is submitted, this modal will appear
   if (!movieTitleInput) {
     {
       Swal.fire({
@@ -42,7 +43,6 @@ function handleSearchFormSubmit(event) {
     }; 
     return;
   }
-
   showMovies();
 }
 
@@ -63,6 +63,7 @@ function showMovies() {
     })
     .then(function (data) {
       // console.log(data.Response);
+      // If there is no movie by the title entered, this modal will appear
       if (data.Response == "False") {
         // console.log("no data")
         {
@@ -72,10 +73,13 @@ function showMovies() {
             text: "Something went wrong! Please spell title correctly!",
           });
         };
+
+        // This will all happen if the title of the movie can be found.
       } else {
         //Removes Hide class once submit button is clicked
         movieDisplay.classList.remove("hide");
         // console.log(data); //works!
+        // These pull the information from the data
         let movieTitle = data.Title
         let releaseYear = data.Year
         let movieRated = data.Rated
@@ -85,7 +89,7 @@ function showMovies() {
         let movieActors = data.Actors
         let moviePoster = data.Poster
 
-        //Displays data on page
+        //Displays movie data on page
         movieTitleEl.textContent = movieTitle;
         releaseYearEl.textContent = releaseYear;
         movieRatedEl.textContent = "Rated: " + movieRated;
@@ -99,10 +103,10 @@ function showMovies() {
     }
     )
 }
+
 //This will display the meme/gif based on movie rating
 function displayRatingMeme(rating) {
   // console.log(rating); //Works!
-
   let memQuery = "";
   if (rating >= 85) {
     memQuery = "awesome";
@@ -118,6 +122,7 @@ function displayRatingMeme(rating) {
     .then(function (d) {
       return d.json()
     })
+    //Chooses gif at random from the query run based on the keyword.
     .then(function (data) {
       // console.log(memeUrl) //works!
       // console.log(data.data)
@@ -129,7 +134,7 @@ function displayRatingMeme(rating) {
 
 const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
 
-// Function to handle idle time
+// Function to handle idle time - for future development
 function handleIdleTime() {
   const idleTime = 60000; // 1 minute in milliseconds
   let idleTimer;
