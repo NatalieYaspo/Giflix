@@ -37,7 +37,7 @@ The user will also see an entertaining Gif based on the level of Rotten Tomatoes
 
 Developers:
 - Deven Castoria
-    GitHub: 
+    GitHub: https://github.com/dcast217
 - Kyle Coulter
     GitHub: 
 - Natalie Yaspo

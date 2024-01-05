@@ -2,6 +2,8 @@
 // Kyle C OMDB API Key - b4e4f55f
 // Natalie Y Gify API Key - 0ZtRGAT8OHOQfkQQhxXgwfbapGpNP66I
 // Natalie Y OMDB API Key - a9de6950
+// Deven C Giphy API Key - dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg
+// Deven C OMDB API Key - a43e73e6
 
 
 //Movie Variables
@@ -53,25 +55,6 @@ function displayRatingMeme(rating) {
   } else if (rating < 50) {
     memQuery = "eww";
   }
-
-  // switch (rating) {
-  //   case 1:
-  //     rating >= 85;
-  //     memQuery = "awesome";
-  //     break;
-  //   case 2:
-  //     rating >= 50;
-  //     memQuery = "meh";
-  //     break;
-  //   case 3:
-  //     rating < 50;
-  //     memQuery = "eww";
-  //     break;
-  //   default:
-  //     memQuery = "https://example.com/memes/default-meme.gif";
-  //     break;
-  // }
-  // console.log(rating) //Works!
 
   // Giphy API that we will pass through a keywork based on rating
   let memeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${memQuery}&rating=pg-13&limit=10`;
@@ -132,50 +115,6 @@ const above50Memes = [];
 const randomIndex = Math.floor(Math.random() * above50Memes.length);
 const randomMeme = above50Memes[randomIndex];
 const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
-// const searchTerm = 'Awesome';
-// NEEDED?
-// fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&rating=pg-13&limit=10`)
-//   .then(response => response.json())
-//   .then(data => {
-//     // Process the response data here
-//     const gifs = data.data;
-//     // console.log(gifs);
-//   })
-//   .catch(error => {
-//     console.error('Error:', error);
-//   });
-
-
-// Function to display the rating meme/gif
-//REMOVE?  THIS Won't count as using an API
-// const awesomeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=awesome&rating=pg-13&limit=10`
-// const mehUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=meh&rating=pg-13&limit=10`
-// const ewwUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=eww&rating=pg-13&limit=10`
-// function displayRatingMeme(rottenTomatoRating) {
-//   console.log(rottenTomatoRating.value);
-//   let memeUrl = "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-
-
-
-//   switch (rating) {
-//     case 1:
-//       rating >= "85";
-//       memeUrl = awesomeUrl;
-//       break;
-//     case 2:
-//       rating >= "50";
-//       memeUrl = mehUrl;
-//       break;
-//     case 3:
-//       rating < "50";
-//       memeUrl = ewwUrl;
-//       break;
-//     default:
-//       memeUrl = "https://example.com/memes/default-meme.gif";
-//       break;
-//   }
-
-// }
 
 // Function to handle idle time
 function handleIdleTime() {
