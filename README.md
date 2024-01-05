@@ -8,7 +8,7 @@ As a person needing a quick reference to a movie,
 
 When I a looking at the information for my searched movie,
     I want to see a quick Gif
-    so that I can easily see the basic social ratings for this movie, and be entertained.
+    That represents the basic social ratings for this movie, and be entertained.
 
 ## Installation
 
@@ -18,7 +18,7 @@ URL: https://coulterkyle.github.io/Giflix/
 
 Upon opening the app, the user will be presented with a search bar to enter the name of the movie they wish to look up.
 
-![image](https://github.com/coulterkyle/resturant-review/assets/149972640/8e4e2380-a5a5-4cf0-b939-78fd44ee1933)
+![image](https://github.com/coulterkyle/Giflix/assets/149972640/07cbbdfe-6b44-4480-a8ef-cf3b8bac1de0)
 
 When the movie title has been searched, the user will see a box with the basic movie information including:
 - Movie name and year released and the movie poster
@@ -28,10 +28,11 @@ When the movie title has been searched, the user will see a box with the basic m
 - Basic movie plot
 - Current Rotten Tomatoes rating %
   
-![image](https://github.com/coulterkyle/resturant-review/assets/149972640/f7d83723-e9d9-4bbe-b57a-63130bcb8709)
+![image](https://github.com/coulterkyle/Giflix/assets/149972640/cf65c2d4-f68e-4e5e-9520-fb611c1a1bf3)
 
 The user will also see an entertaining Gif based on the level of Rotten Tomatoes rating.  If it is a top score, medocre, or low score, the Gif will give a basic overall impression of the movie.
 
+![image](https://github.com/coulterkyle/Giflix/assets/149972640/41991df9-0309-4b5d-9764-f09c923a958a)
 
 ## Credits
 
