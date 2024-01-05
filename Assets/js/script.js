@@ -18,6 +18,7 @@ const movieActorsEl = document.getElementById('movieActors');
 const moviePosterEl = document.getElementById('moviePoster');
 const releaseYearEl = document.getElementById('releaseYear');
 const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
+const gifEL = document.getElementById('iframe');
 
 //Event Listeners
 formEl.addEventListener("submit", handleSearchFormSubmit);
@@ -42,7 +43,38 @@ function handleSearchFormSubmit(event) {
 
   showMovies();
 }
+// function displayRatingMeme(rating) {
+//   let memQuery = "";
+//   if (rating >= 85) {
+//     memQuery = "awesome";
+//   } else if (rating >= 50) {
+//     memQuery = "meh";
+//   } else if (rating < 50) {
+//     memQuery = "eww";
+//   }
 
+//   let memeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${memQuery}&rating=pg-13&limit=10`;
+
+//   fetch(memeUrl)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       // Assuming you have an element with id "meme-container" where you want to display the meme
+//       let memeContainer = document.getElementById("meme-container");
+
+//       // Clear the previous meme if any
+//       memeContainer.innerHTML = "";
+
+//       // Display the first meme from the data
+//       if (data.data.length > 0) {
+//         let memeImg = document.createElement("img");
+//         memeImg.src = data.data[0].images.fixed_height.url;
+//         memeImg.alt = "Meme";
+//         memeContainer.appendChild(memeImg);
+//       }
+//     });
+// }
 //This will display the meme/gif based on movie rating
 function displayRatingMeme(rating) {
   // console.log(rating); //Works!
@@ -64,7 +96,10 @@ function displayRatingMeme(rating) {
     })
     .then(function (data) {
       // console.log(memeUrl) //works!
-      console.log(data)
+      console.log(data.data)
+     var randomgif = Math.floor(Math.random() * data.data.length);
+      var gifEmbedUrl = data.data[randomgif].embed_url;
+      gifEL.src = gifEmbedUrl;
     })
 }
 
