@@ -28,8 +28,7 @@ function handleSearchFormSubmit(event) {
   event.preventDefault();
   // console.log("search form clicked!"); - works!
 
-  //Removes Hide class once submit button is clicked
-  movieDisplay.classList.remove("hide");
+ 
 
   const movieTitleInput = document.getElementById('movieTitleInput').value;
   // console.log('should see movie name, no quotes: ', movieTitleInput); - works
@@ -37,44 +36,63 @@ function handleSearchFormSubmit(event) {
   localStorage.setItem('movieTitle', movieTitleInput);
 
   if (!movieTitleInput) {
-    console.log("You need to enter a movie title!"); //works!
+    alert("You need to enter a movie title!"); //works!
     return;
   }
 
   showMovies();
 }
-// function displayRatingMeme(rating) {
-//   let memQuery = "";
-//   if (rating >= 85) {
-//     memQuery = "awesome";
-//   } else if (rating >= 50) {
-//     memQuery = "meh";
-//   } else if (rating < 50) {
-//     memQuery = "eww";
-//   }
 
-//   let memeUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${memQuery}&rating=pg-13&limit=10`;
-
-//   fetch(memeUrl)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       // Assuming you have an element with id "meme-container" where you want to display the meme
-//       let memeContainer = document.getElementById("meme-container");
-
-//       // Clear the previous meme if any
-//       memeContainer.innerHTML = "";
-
-//       // Display the first meme from the data
-//       if (data.data.length > 0) {
-//         let memeImg = document.createElement("img");
-//         memeImg.src = data.data[0].images.fixed_height.url;
-//         memeImg.alt = "Meme";
-//         memeContainer.appendChild(memeImg);
-//       }
-//     });
-// }
+//This will show the information for the movie title that was searched
+function showMovies() {
+  //Pulls movie title searched:
+  var searchedMovieTitle = localStorage.getItem('movieTitle');
+  // console.log("should see movie title, with no quotes: ", searchedMovieTitle); //- works
+  
+  //Adds the year to search to URL
+  var urlBySearchYear = url + '&t=' + searchedMovieTitle;
+  // console.log(urlBySearchYear); //- works!
+  
+  //Gets information from API
+  fetch(urlBySearchYear)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    // console.log(data.Response);
+    if (data.Response == "False") {
+      // console.log("no data")
+      alert(data.Error);
+    } else {
+       //Removes Hide class once submit button is clicked
+  movieDisplay.classList.remove("hide");
+      // console.log(data); //works!
+      let movieTitle = data.Title
+      let releaseYear = data.Year
+      let movieRated = data.Rated
+      let moviePlot = data.Plot
+      let rating = data.Ratings[1].Value.slice(0, -1)
+      let movieGenre = data.Genre
+      let movieActors = data.Actors
+      let moviePoster = data.Poster
+      // console.log(movieTitle, movieRated, moviePlot);//works!!
+      // console.log(rottenTomatoRating);//works
+      // console.log(moviePoster);
+      
+      //Displays data on page
+      movieTitleEl.textContent = movieTitle;
+      releaseYearEl.textContent = releaseYear;
+      movieRatedEl.textContent = "Rated: " + movieRated;
+      movieGenreEl.textContent = "Genre: " + movieGenre;
+      movieActorsEl.textContent = "Main Actors: " + movieActors;
+      moviePlotEl.textContent = moviePlot;
+      moviePosterEl.src = moviePoster;
+      movieRtRatingEl.textContent = "Rotten Tomatoes Rating: " + rating + "%";
+      displayRatingMeme(parseInt(rating));
+    }
+  }
+  ) 
+}
 //This will display the meme/gif based on movie rating
 function displayRatingMeme(rating) {
   // console.log(rating); //Works!
@@ -97,58 +115,15 @@ function displayRatingMeme(rating) {
     .then(function (data) {
       // console.log(memeUrl) //works!
       console.log(data.data)
-     var randomgif = Math.floor(Math.random() * data.data.length);
+      var randomgif = Math.floor(Math.random() * data.data.length);
       var gifEmbedUrl = data.data[randomgif].embed_url;
       gifEL.src = gifEmbedUrl;
     })
 }
 
-//This will show the information for the movie title that was searched
-function showMovies() {
-  //Pulls movie title searched:
-  var searchedMovieTitle = localStorage.getItem('movieTitle');
-  // console.log("should see movie title, with no quotes: ", searchedMovieTitle); //- works
-
-  //Adds the year to search to URL
-  var urlBySearchYear = url + '&t=' + searchedMovieTitle;
-  // console.log(urlBySearchYear); //- works!
-
-  //Gets information from API
-  fetch(urlBySearchYear)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      // console.log(data); //works!
-      let movieTitle = data.Title
-      let releaseYear = data.Year
-      let movieRated = data.Rated
-      let moviePlot = data.Plot
-      let rating = data.Ratings[1].Value.slice(0, -1)
-      let movieGenre = data.Genre
-      let movieActors = data.Actors
-      let moviePoster = data.Poster
-      // console.log(movieTitle, movieRated, moviePlot);//works!!
-      // console.log(rottenTomatoRating);//works
-      // console.log(moviePoster);
-
-      //Displays data on page
-      movieTitleEl.textContent = movieTitle;
-      releaseYearEl.textContent = releaseYear;
-      movieRatedEl.textContent = "Rated: " + movieRated;
-      movieGenreEl.textContent = "Genre: " + movieGenre;
-      movieActorsEl.textContent = "Main Actors: " + movieActors;
-      moviePlotEl.textContent = moviePlot;
-      moviePosterEl.src = moviePoster;
-      movieRtRatingEl.textContent = "Rotten Tomatoes Rating: " + rating + "%";
-      displayRatingMeme(parseInt(rating));
-    }
-    )
-}
-
-const above50Memes = [];
-const randomIndex = Math.floor(Math.random() * above50Memes.length);
-const randomMeme = above50Memes[randomIndex];
+// const above50Memes = [];
+// const randomIndex = Math.floor(Math.random() * above50Memes.length);
+// const randomMeme = above50Memes[randomIndex];
 const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
 
 // Function to handle idle time
@@ -164,51 +139,21 @@ function handleIdleTime() {
   idleTimer = setTimeout(displayIdleMeme, idleTime);
 }
 
-// Function to display the idle meme
-// function displayIdleMeme() {
-//   const idleMemeUrl =
-//     "https://media.giphy.com/media/fYqHQ3HMuU1KK2NX0p/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-//   alert("You are taking too long!\n\n" + idleMemeUrl);
-// }
+// // Alert for when movie doens't exist 
+// const searchForm = document.querySelector('#search-form');
+// const searchInput = document.querySelector('#search-input');
 
-// Example usage
-// const zipCode = ""; // Replace with the actual zip code entered by the user
-// searchByZipCode(zipCode);
-// handleIdleTime();
+// searchForm.addEventListener('submit', async (event) => {
+//   event.preventDefault();
 
-const MemeContainer = () => {
-  const memeContainer = document.createElement("div");
-  memeContainer.classList.add("meme-container");
+//   const movieTitle = searchInput.value;
 
-  const img = document.createElement("img");
-  img.src =
-    "https://media.giphy.com/media/sQuHLqjWwRXGvrjkg0/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g";
-  img.alt = "Good Rating Meme";
+//   // Make a request to the OMDB API to search for the movie
+//   const response = await fetch(`https://www.omdbapi.com/?t=${movieTitle}&apikey=YOUR_API_KEY`);
+//   const data = await response.json();
 
-  const p = document.createElement("p");
-  p.textContent = "This movie has a good rating!";
-
-  memeContainer.appendChild(img);
-  memeContainer.appendChild(p);
-
-  return memeContainer;
-};
-
-// const memes = [
-//   { name: "Meme 1", rating: 80, imageURL: "https://media.giphy.com/media/sQuHLqjWwRXGvrjkg0/giphy.gif?cid=ecf05e4722af56fabb2783439d698fc7f375e47dce9eb261&ep=v1_user_favorites&rid=giphy.gif&ct=g" },
-//   { name: "Meme 2", rating: 30, imageURL: "meme2.jpg" },
-//   { name: "Meme 3", rating: 60, imageURL: "meme3.jpg" },];
-// const above50Memes = [];
-// const below50Memes = [];
-// memes.forEach((meme) => {
-//   if (meme.rating > 50) {
-//     above50Memes.push(meme);
-//   } else {
-//     below50Memes.push(meme);
+//   if (data.Response === 'False') {
+//     // Display an alert if the movie title doesn't exist
+//     alert('Movie title does not exist, please try again.');
 //   }
 // });
-
-
-// Example usage:
-// const appContainer = document.getElementById("app");
-// appContainer.appendChild(MemeContainer())
