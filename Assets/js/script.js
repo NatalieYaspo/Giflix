@@ -122,7 +122,7 @@ function showMovies() {
       movieActorsEl.textContent = "Main Actors: " + movieActors;
       moviePlotEl.textContent = moviePlot;
       moviePosterEl.src = moviePoster;
-      movieRtRatingEl.textContent = rating + "%";
+      movieRtRatingEl.textContent = "Rotten Tomatoes Rating: " + rating + "%";
       displayRatingMeme(parseInt(rating));
     }
     )
