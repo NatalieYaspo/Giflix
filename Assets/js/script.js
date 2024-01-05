@@ -108,7 +108,7 @@ function displayRatingMeme(rating) {
     })
     .then(function (data) {
       // console.log(memeUrl) //works!
-      console.log(data.data)
+      // console.log(data.data)
       var randomgif = Math.floor(Math.random() * data.data.length);
       var gifEmbedUrl = data.data[randomgif].embed_url;
       gifEL.src = gifEmbedUrl;
