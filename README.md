@@ -39,7 +39,7 @@ Developers:
 - Deven Castoria
     GitHub: https://github.com/dcast217
 - Kyle Coulter
-    GitHub: 
+    GitHub: https://github.com/coulterkyle
 - Natalie Yaspo
     GitHub: https://github.com/NatalieYaspo
 
