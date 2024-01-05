@@ -10,7 +10,8 @@
     background-size: cover;
     /* Resize the background image to cover the entire container */
 }
-#gifbox{
+
+#gifbox {
     max-width: fit-content;
 }
 
@@ -21,6 +22,7 @@
     opacity: 0.9;
     padding: 1em;
 }
+
 img#Logo {
     position: relative;
     display: block;
@@ -29,7 +31,8 @@ img#Logo {
     height: 300px;
     padding: 30px;
 }
-img#moviePoster{
+
+img#moviePoster {
     max-height: 300px;
     max-width: 300px;
     position: relative;

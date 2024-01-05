@@ -5,7 +5,6 @@
 // Deven C Giphy API Key - dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg
 // Deven C OMDB API Key - a43e73e6
 
-
 //Movie Variables
 const formEl = document.getElementById('movieTitleSearchForm');
 const movieDisplay = document.getElementById('movieDisplay');
@@ -28,8 +27,6 @@ function handleSearchFormSubmit(event) {
   event.preventDefault();
   // console.log("search form clicked!"); - works!
 
- 
-
   const movieTitleInput = document.getElementById('movieTitleInput').value;
   // console.log('should see movie name, no quotes: ', movieTitleInput); - works
 
@@ -48,50 +45,47 @@ function showMovies() {
   //Pulls movie title searched:
   var searchedMovieTitle = localStorage.getItem('movieTitle');
   // console.log("should see movie title, with no quotes: ", searchedMovieTitle); //- works
-  
+
   //Adds the year to search to URL
   var urlBySearchYear = url + '&t=' + searchedMovieTitle;
   // console.log(urlBySearchYear); //- works!
-  
+
   //Gets information from API
   fetch(urlBySearchYear)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    // console.log(data.Response);
-    if (data.Response == "False") {
-      // console.log("no data")
-      alert(data.Error);
-    } else {
-       //Removes Hide class once submit button is clicked
-  movieDisplay.classList.remove("hide");
-      // console.log(data); //works!
-      let movieTitle = data.Title
-      let releaseYear = data.Year
-      let movieRated = data.Rated
-      let moviePlot = data.Plot
-      let rating = data.Ratings[1].Value.slice(0, -1)
-      let movieGenre = data.Genre
-      let movieActors = data.Actors
-      let moviePoster = data.Poster
-      // console.log(movieTitle, movieRated, moviePlot);//works!!
-      // console.log(rottenTomatoRating);//works
-      // console.log(moviePoster);
-      
-      //Displays data on page
-      movieTitleEl.textContent = movieTitle;
-      releaseYearEl.textContent = releaseYear;
-      movieRatedEl.textContent = "Rated: " + movieRated;
-      movieGenreEl.textContent = "Genre: " + movieGenre;
-      movieActorsEl.textContent = "Main Actors: " + movieActors;
-      moviePlotEl.textContent = moviePlot;
-      moviePosterEl.src = moviePoster;
-      movieRtRatingEl.textContent = "Rotten Tomatoes Rating: " + rating + "%";
-      displayRatingMeme(parseInt(rating));
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data.Response);
+      if (data.Response == "False") {
+        // console.log("no data")
+        alert(data.Error);
+      } else {
+        //Removes Hide class once submit button is clicked
+        movieDisplay.classList.remove("hide");
+        // console.log(data); //works!
+        let movieTitle = data.Title
+        let releaseYear = data.Year
+        let movieRated = data.Rated
+        let moviePlot = data.Plot
+        let rating = data.Ratings[1].Value.slice(0, -1)
+        let movieGenre = data.Genre
+        let movieActors = data.Actors
+        let moviePoster = data.Poster
+
+        //Displays data on page
+        movieTitleEl.textContent = movieTitle;
+        releaseYearEl.textContent = releaseYear;
+        movieRatedEl.textContent = "Rated: " + movieRated;
+        movieGenreEl.textContent = "Genre: " + movieGenre;
+        movieActorsEl.textContent = "Main Actors: " + movieActors;
+        moviePlotEl.textContent = moviePlot;
+        moviePosterEl.src = moviePoster;
+        movieRtRatingEl.textContent = "Rotten Tomatoes Rating: " + rating + "%";
+        displayRatingMeme(parseInt(rating));
+      }
     }
-  }
-  ) 
+    )
 }
 //This will display the meme/gif based on movie rating
 function displayRatingMeme(rating) {
@@ -121,9 +115,6 @@ function displayRatingMeme(rating) {
     })
 }
 
-// const above50Memes = [];
-// const randomIndex = Math.floor(Math.random() * above50Memes.length);
-// const randomMeme = above50Memes[randomIndex];
 const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
 
 // Function to handle idle time
@@ -138,22 +129,3 @@ function handleIdleTime() {
 
   idleTimer = setTimeout(displayIdleMeme, idleTime);
 }
-
-// // Alert for when movie doens't exist 
-// const searchForm = document.querySelector('#search-form');
-// const searchInput = document.querySelector('#search-input');
-
-// searchForm.addEventListener('submit', async (event) => {
-//   event.preventDefault();
-
-//   const movieTitle = searchInput.value;
-
-//   // Make a request to the OMDB API to search for the movie
-//   const response = await fetch(`https://www.omdbapi.com/?t=${movieTitle}&apikey=YOUR_API_KEY`);
-//   const data = await response.json();
-
-//   if (data.Response === 'False') {
-//     // Display an alert if the movie title doesn't exist
-//     alert('Movie title does not exist, please try again.');
-//   }
-// });
