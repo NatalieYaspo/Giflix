@@ -8,7 +8,7 @@ As a person needing a quick reference to a movie,
 
 When I a looking at the information for my searched movie,
     I want to see a quick Gif
-    so that I can easily see the basic social ratings for this movie, and be entertained.
+    That represents the basic social ratings for this movie, and be entertained.
 
 ## Installation
 
