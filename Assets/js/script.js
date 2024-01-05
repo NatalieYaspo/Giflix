@@ -17,7 +17,7 @@ const movieGenreEl = document.getElementById('movieGenre');
 const movieActorsEl = document.getElementById('movieActors');
 const moviePosterEl = document.getElementById('moviePoster');
 const releaseYearEl = document.getElementById('releaseYear');
-const url = 'http://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
+const url = 'https://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
 const gifEL = document.getElementById('iframe');
 
 //Event Listeners

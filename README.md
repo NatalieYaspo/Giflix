@@ -12,7 +12,7 @@ When I a looking at the information for my searched movie,
 
 ## Installation
 
-URL: 
+URL: https://coulterkyle.github.io/Giflix/
 
 ## Usage
 
