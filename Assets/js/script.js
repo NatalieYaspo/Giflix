@@ -16,7 +16,7 @@ const movieGenreEl = document.getElementById('movieGenre');
 const movieActorsEl = document.getElementById('movieActors');
 const moviePosterEl = document.getElementById('moviePoster');
 const releaseYearEl = document.getElementById('releaseYear');
-const url = 'https://www.omdbapi.com/?type=movie&apikey=b4e4f55f';
+const url = 'https://www.omdbapi.com/?type=movie&apikey=a9de6950';
 const gifEL = document.getElementById('iframe');
 
 //Event Listeners
@@ -132,7 +132,7 @@ function displayRatingMeme(rating) {
     })
 }
 
-const apiKey = 'dLg5M2Mlv8CQ642sfvMyyvV9C1GcK7vg';
+const apiKey = '0ZtRGAT8OHOQfkQQhxXgwfbapGpNP66I';
 
 // Function to handle idle time - for future development
 function handleIdleTime() {
